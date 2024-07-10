@@ -1,9 +1,12 @@
 using CleanArchitecture.Application.Behaviors;
 using CleanArchitecture.Application.Services;
+using CleanArchitecture.Domain.Repositories;
 using CleanArchitecture.Persistance.Context;
+using CleanArchitecture.Persistance.Repositories;
 using CleanArchitecture.Persistance.Services;
 using CleanArchitecture.WebApi.Middleware;
 using FluentValidation;
+using GenericRepository;
 using MediatR;
 using Microsoft.EntityFrameworkCore;
 
@@ -26,6 +29,9 @@ builder.Services.AddMediatR(cfr =>
     cfr.RegisterServicesFromAssembly(typeof(CleanArchitecture.Application.AssemblyReference).Assembly));
 
 builder.Services.AddTransient(typeof(IPipelineBehavior<,>), typeof(ValidationBehavior<,>));
+
+builder.Services.AddScoped<IUnitOfWork, UnitOfWork<AppDbContext>>();
+builder.Services.AddScoped<ICarRepository, CarRepository>();
 
 builder.Services.AddValidatorsFromAssembly(typeof(CleanArchitecture.Application.AssemblyReference).Assembly);
 

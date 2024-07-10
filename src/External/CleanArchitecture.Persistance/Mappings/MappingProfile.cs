@@ -1,19 +1,13 @@
 ﻿using AutoMapper;
 using CleanArchitecture.Application.Features.CarFeatures.Commands.CreateCar;
 using CleanArchitecture.Domain.Entities;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
-namespace CleanArchitecture.Persistance.Mappings
+namespace CleanArchitecture.Persistance.Mappings;
+
+public sealed class MappingProfile : Profile
 {
-    public sealed class MappingProfile : Profile
+    public MappingProfile()
     {
-        public MappingProfile() 
-        {
-            CreateMap<CreateCarCommand, Car>().ReverseMap();
-        }
+        CreateMap<CreateCarCommand, Car>().ReverseMap();
     }
 }

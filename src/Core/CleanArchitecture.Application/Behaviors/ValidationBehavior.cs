@@ -1,5 +1,5 @@
-﻿using FluentValidation.Results;
-using FluentValidation;
+﻿using FluentValidation;
+using FluentValidation.Results;
 using MediatR;
 using System;
 using System.Collections.Generic;
@@ -21,7 +21,7 @@ namespace CleanArchitecture.Application.Behaviors
 
         public async Task<TResponse> Handle(TRequest request, RequestHandlerDelegate<TResponse> next, CancellationToken cancellationToken)
         {
-            if (!_validators.Any())
+            if(!_validators.Any())
             {
                 return await next();
             }

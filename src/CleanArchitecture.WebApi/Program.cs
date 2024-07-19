@@ -2,6 +2,7 @@ using CleanArchitecture.Application.Behaviors;
 using CleanArchitecture.Application.Services;
 using CleanArchitecture.Domain.Entities;
 using CleanArchitecture.Domain.Repositories;
+using CleanArchitecture.Infrastructure.Services;
 using CleanArchitecture.Persistance.Context;
 using CleanArchitecture.Persistance.Repositories;
 using CleanArchitecture.Persistance.Services;
@@ -17,6 +18,7 @@ var builder = WebApplication.CreateBuilder(args);
 
 builder.Services.AddScoped<ICarService, CarService>();
 builder.Services.AddScoped<IAuthService, AuthService>();
+builder.Services.AddScoped<IMailService, MailService>();
 
 builder.Services.AddTransient<ExceptionMiddleware>();
 

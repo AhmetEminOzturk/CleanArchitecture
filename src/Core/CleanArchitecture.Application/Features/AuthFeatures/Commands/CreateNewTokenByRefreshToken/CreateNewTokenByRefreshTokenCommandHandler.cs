@@ -24,3 +24,4 @@ namespace CleanArchitecture.Application.Features.AuthFeatures.Commands.CreateNew
             return response;
         }
     }
+}
